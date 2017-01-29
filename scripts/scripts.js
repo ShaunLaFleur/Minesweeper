@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 
   // Cell click function. Called after they're generated to get it attached properly.
-  $(".cell").mousedown(function(){
+  $(".cell").mousedown(function(event){
     var x = parseInt($(this).attr("id"));
     if(event.which === 3) {
       // If cell is still hidden, call the marking function using it's position as a parameter.
@@ -43,7 +43,7 @@ $(document).ready(function(){
       if(cell[x].bomb === "yes"  && !isGameOver) {
         $(this).css("background-color", "red");
         alert("You lose!");
-        //$("#winorlose").append("You have <span style='color:red'>LOST</span> the round! Select a difficulty to reset the grid!");
+        $("#winorlose").append("You have <span style='color:red'>LOST</span> the round! Select a difficulty to reset the grid!");
         isGameOver = true;
         return
       }
