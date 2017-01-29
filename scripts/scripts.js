@@ -11,6 +11,8 @@ var isGameOver = false;
 var mode = 50;
 // Keep track of cleared cells
 var cellCount = 0;
+// Bomb locations
+var bombLoc = [];
 
 $(document).ready(function(){
   // Generate grid with correct div structure.
@@ -45,7 +47,11 @@ $(document).ready(function(){
         alert("You lose!");
         $("#winorlose").append("You have <span style='color:red'>LOST</span> the round! Select a difficulty to reset the grid!");
         isGameOver = true;
-        return
+        // Reveals all bombs
+        for(i=0; i<bombLoc.length; i++) {
+          $("#"+bombLoc[i]).css("background-color","red");
+        }
+        return;
       }
       // If this is the first time you click a cell, we call a function to setup the board.
       if(!isStarted) {
@@ -72,7 +78,7 @@ $("button").click(function(){
 });
 
 
-// Function to reset all cells to default value
+// Function to reset game
 function resetCells(bombcount, difficulty, label) {
  $("button").css("color", "");
  $("button").css("background-color","");
@@ -82,6 +88,7 @@ function resetCells(bombcount, difficulty, label) {
  isStarted = false;
  isGameOver = false;
  cellCount = 0;
+ bombLoc = [];
  mode = bombcount;
  $("#winorlose").html("&nbsp");
  $(".cell").html("");
@@ -123,6 +130,7 @@ function generateBombs(bombs, current) {
     if(cell[n].bomb === "no" && n !== current) {
       counter += 1;
       cell[n].bomb = "yes";
+      bombLoc.push(n);
 
       // Add +1 to the nearby attribute of all adjacent cells.
       // Left
