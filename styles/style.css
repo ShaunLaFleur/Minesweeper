@@ -1,0 +1,47 @@
+body {
+  background-color:black;
+  color: white;
+}
+
+h1 {
+  color:white;
+  margin-bottom: 0px;
+}
+
+h3 {
+  color: white;
+  margin-top: 0px;
+}
+
+button {
+  margin-bottom: 10px;
+  border: 2px solid gray;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+
+#wrapper {
+  text-align:center;
+}
+
+#container {
+  display: inline-block;
+}
+
+#grid {
+  width: 440px;
+  border: 10px solid white;
+  min-height: 440px;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  float:left;
+  border: 1px solid #4e4e4e;
+}
