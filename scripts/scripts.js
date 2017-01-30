@@ -1,3 +1,4 @@
+// I'm aware I could/should probably just use .index() to get a cell's position and then use .eq() to target a cell's position, rather than relying on using an ID that matches it's position/index. I may update later.
 // Cell array holds the objects for each cell div and it's attributes.
 var cell = [];
 // Used for algorithm to check if a cell is on the edges. I use a variable in case I want to resize the grid later. Current Position-0%gridWidth will have 0 remainder if it's on the left edge.
@@ -7,7 +8,7 @@ var gridWidth = 20;
 var isStarted = false;
 // Stops all further cell clearing
 var isGameOver = false;
-// Difficulty (Easy = 50 bombs, Medium = x bombs, Hard = y bombs)
+// Difficulty (Easy = 50 bombs, Medium = 60 bombs, Hard = 80 bombs)
 var mode = 50;
 // Keep track of cleared cells
 var cellCount = 0;
@@ -154,7 +155,7 @@ function generateBombs(bombs, current) {
       }
 
       // Up-right
-      if(n > gridWidth-1 && n-(gridWidth-1)%gridWidth !== 0) {
+      if(n > gridWidth-1 && (n-(gridWidth-1))%gridWidth !== 0) {
         cell[n-20+1].nearby += 1;
       }
 
