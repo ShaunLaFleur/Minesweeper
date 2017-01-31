@@ -1,0 +1,1 @@
+After learning a bit about javascript and jQuery, I wanted to see if I could create a game of minesweeper only using the very basics of the language. I'm aware that most people make snake using a more object oriented approach. I plan to remake the game in a similar way once I've learned more about OOP.
