@@ -52,7 +52,6 @@ $(document).ready(function(){
         for(i=0; i<bombLoc.length; i++) {
           $("#"+bombLoc[i]).css("background-color","red");
         }
-        return;
       }
       // If this is the first time you click a cell, we call a function to setup the board.
       if(!isStarted) {
@@ -107,15 +106,13 @@ function setMarker(b) {
   if(cell[b].marked === "no") {
     $("#"+b).html("!");
     cell[b].marked = "!";
-    return;
   } else if(cell[b].marked === "!") {
     $("#"+b).html("?");
     cell[b].marked = "?";
-    return;
-  } else if(cell[b].marked === "?")
+  } else if(cell[b].marked === "?") {
     $("#"+b).html("");
     cell[b].marked = "no";
-    return;
+  }
 }
 
 // Bomb generating function
